@@ -1,0 +1,16 @@
+<!---->
+<div *ngIf="book">
+  <h2>{{ book.title | uppercase }}</h2>
+
+  <span *ngFor="let author of book.authors">{{ author }}<br /></span>
+  <p>
+    {{ book.publisher }}, {{ book.year }}
+
+    <i *ngIf="book.edition"> ({{ book.edition }}. Edition)</i>
+  </p>
+
+  <div>
+    <label>Description:</label>
+    <input [(ngModel)]="book.description" placeholder="description" />
+  </div>
+</div>
