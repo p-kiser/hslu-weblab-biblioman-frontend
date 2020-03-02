@@ -9,11 +9,18 @@ import { MessageService } from "./message.service";
   providedIn: "root"
 })
 export class BookService {
+  constructor(private messageService: MessageService) {}
+
   getBooks(): Observable<Book[]> {
     // TODO: send the message _after_ fetching the books
     this.messageService.add("BookService: fetched books");
     return of(BOOKS);
   }
 
-  constructor(private messageService: MessageService) {}
+  getBook(id: string): Observable<Book> {
+    // TODO: send the message _after_ fetching the book
+    this.messageService.add(`BookService: fetched book id="${id}"`);
+
+    return of(BOOKS.find(book => book.id === id));
+  }
 }

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const BOOKS: Book[] = [
   {
-    id: uuidv4(),
+    id: uuidv4(), //"69696969-1337-4242-0420-000000000001",
     title: "Ed Mastery",
     authors: ["Michael W. Lucas", "Jim Knopf"],
     publisher: " Tilted Windmill Press",
