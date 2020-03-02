@@ -1,7 +1,7 @@
 <h2>My Books</h2>
 
 <ul class="books">
-  <li *ngFor="let book of books">
+  <li *ngFor="let book of bookRepository._embedded.book">
     <a routerLink="/detail/{{ book.id }}">
       <span>{{ book.title }}</span>
       &nbsp;
