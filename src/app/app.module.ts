@@ -8,8 +8,8 @@ import { AppComponent } from "./app.component";
 import { BooksComponent } from "./books/books.component";
 import { BookDetailComponent } from "./book-detail/book-detail.component";
 import { MessagesComponent } from "./messages/messages.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
 import { TopshelfComponent } from "./topshelf/topshelf.component";
+import { BookCreateComponent } from './book-create/book-create.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { TopshelfComponent } from "./topshelf/topshelf.component";
     BooksComponent,
     BookDetailComponent,
     MessagesComponent,
-    DashboardComponent,
-    TopshelfComponent
+    TopshelfComponent,
+    BookCreateComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

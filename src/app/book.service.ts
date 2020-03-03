@@ -16,7 +16,8 @@ export class BookService {
     private messageService: MessageService
   ) {}
 
-  private booksUrl = "http://localhost:8080/book"; // URL to web api
+  private booksUrl = "http://localhost:8080/book"; //
+  private isbnApi = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
@@ -31,17 +32,22 @@ export class BookService {
     );
   }
 
-  getBookRepository() {
-    this.log("fetched book repository");
-
-    return this.http.get<GetResponse>(this.booksUrl);
-  }
-
   getBook(id: string): Observable<Book> {
-    // TODO: send the message _after_ fetching the book
     this.log(`fetched book id="${id}"`);
     return this.http.get<Book>(`${this.booksUrl}/${id}`);
-    //return of(BOOKS.find(book => book.id === id));
+  }
+
+  saveBook(book: Book): void {
+    this.http.post(this.booksUrl, book);
+    this.log(`book saved: ${book.title}`);
+  }
+
+  findBook(isbn: string): any {
+    return this.http.get<any>(this.isbnApi + isbn).pipe(
+      map(response => response.items[0]),
+      tap(book => `Got info for ${isbn}`),
+      catchError(this.handleError("findBook", {}))
+    );
   }
 
   /**

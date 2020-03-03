@@ -1,12 +1,17 @@
-<h1>{{ title }}</h1>
+<div id="biblio-app">
+  <div id="title-board">
+    <h1>{{ title }}</h1>
+  </div>
 
-<nav>
-  <a routerLink="/books">All Books</a>
-  <a>New Book</a>
-  <a>Find Book</a>
-</nav>
-<app-topshelf></app-topshelf>
+  <app-topshelf></app-topshelf>
 
-<router-outlet></router-outlet>
+  <nav>
+    <a routerLink="/books">All Books</a>
+    <a routerLink="/new">New Book</a>
+    <a>Find Book</a>
+  </nav>
 
-<app-messages></app-messages>
+  <router-outlet></router-outlet>
+
+  <app-messages></app-messages>
+</div>

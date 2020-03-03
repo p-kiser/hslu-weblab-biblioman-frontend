@@ -1,28 +1,55 @@
 /* AppComponent's private CSS styles */
+
+#biblio-app {
+  max-width: 1200px;
+  margin: auto;
+}
+
 h1 {
-  font-size: 1.2em;
-  margin-bottom: 0;
+  font-size: 4.2em;
+
+  text-align: center;
+  color: rgb(37, 24, 7);
+  margin-bottom: -10px;
+  font-weight: bolder;
+}
+
+#title-board {
+  background-color: saddlebrown;
+  width: 460px;
+  margin: auto;
+  border-radius: 50px 50px 0 0;
 }
 h2 {
   font-size: 2em;
   margin-top: 0;
   padding-top: 0;
 }
+nav {
+  border: 25px solid saddlebrown;
+  min-width: 900px;
+  background-color: rgb(37, 24, 7);
+}
+
+nav li {
+  display: flexbox;
+}
+
 nav a {
+  color: white;
   padding: 5px 10px;
   text-decoration: none;
-  margin-top: 10px;
   display: inline-block;
-  background-color: #eee;
+  background-color: saddlebrown;
+  border: 3px solid rgb(37, 24, 7);
   border-radius: 4px;
 }
 nav a:visited,
 a:link {
-  color: #334953;
 }
 nav a:hover {
-  color: #039be5;
-  background-color: #cfd8dc;
+  color: gold;
+  transform: scale(4em);
 }
 nav a.active {
   color: #039be5;
