@@ -1,10 +1,9 @@
 import { Book } from "./book";
-import { TestBed } from "@angular/core/testing";
 
-export interface BookRepository {
+export interface GetResponse {
   _embedded: {
     book: Book[];
-    _links: any;
+    _links: { self: { href: string } };
     page: {
       size: number;
       totalElements: number;

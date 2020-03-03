@@ -1,18 +1,44 @@
 <!---->
 <div *ngIf="book">
-  <h2>{{ book.title | uppercase }}</h2>
-
-  <span *ngFor="let author of book.authors">{{ author }}<br /></span>
-  <p>
-    {{ book.publisher }}, {{ book.year }}
-
-    <i *ngIf="book.edition"> ({{ book.edition }}. Edition)</i>
-  </p>
-
+  <h2>
+    {{ book.title | uppercase
+    }}<small *ngIf="book.edition"> ({{ book.edition }}. Edition)</small>
+  </h2>
   <div>
+    <img
+      src="http://covers.openlibrary.org/b/isbn/{{
+        book.isbn.replace('-', '')
+      }}-M.jpg"
+    />
+  </div>
+  <div class="description">
+    <table>
+      <tr *ngIf="book.authors">
+        <th>Author<span *ngIf="book.authors.length > 1">s</span></th>
+        <td>{{ book.authors.join(", ") }}</td>
+      </tr>
+      <tr *ngIf="book.publisher">
+        <th>Publisher</th>
+        <td>{{ book.publisher }}</td>
+      </tr>
+      <tr *ngIf="book.isbn">
+        <th>ISBN</th>
+        <td>{{ book.isbn }}</td>
+      </tr>
+      <tr *ngIf="book.series">
+        <th>Series</th>
+        <td>{{ book.series }}</td>
+      </tr>
+    </table>
+
+    <p>{{ book.description }}</p>
+  </div>
+
+  <!--
     <label>Description:</label>
     <input [(ngModel)]="book.description" placeholder="description" />
-  </div>
+
+    -->
 </div>
 
 <button (click)="goBack()">go back</button>
