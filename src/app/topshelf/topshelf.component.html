@@ -11,16 +11,10 @@
       <div class="module book">
         <h4>{{ book.title }}</h4>
         -->
-    <a
-      *ngFor="let book of books"
-      class="col-1-4"
-      routerLink="/detail/{{ book.key }}"
-    >
-      <img
-        src="http://covers.openlibrary.org/b/isbn/{{
-          book.isbn.replace('-', '')
-        }}-M.jpg"
-      />
-    </a>
+    <span *ngFor="let book of books">
+      <a class="col-1-4" routerLink="/detail/{{ book.key }}">
+        <img src="http://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg" />
+      </a>
+    </span>
   </div>
 </div>

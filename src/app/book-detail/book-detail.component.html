@@ -1,44 +1,50 @@
 <!---->
-<div *ngIf="book">
+<div *ngIf="book" id="book-detail">
   <h2>
     {{ book.title | uppercase
     }}<small *ngIf="book.edition"> ({{ book.edition }}. Edition)</small>
   </h2>
   <div>
-    <img
-      src="http://covers.openlibrary.org/b/isbn/{{
-        book.isbn.replace('-', '')
-      }}-M.jpg"
-    />
+    <img src="http://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg" />
   </div>
   <div class="description">
     <table>
-      <tr *ngIf="book.authors">
-        <th>Author<span *ngIf="book.authors.length > 1">s</span></th>
-        <td>{{ book.authors.join(", ") }}</td>
+      <tr>
+        <th>Author</th>
+        <td>
+          <input [(ngModel)]="authors" placeholder="authors" />
+        </td>
       </tr>
-      <tr *ngIf="book.publisher">
+      <tr>
         <th>Publisher</th>
-        <td>{{ book.publisher }}</td>
+        <td><input [(ngModel)]="book.publisher" placeholder="publisher" /></td>
       </tr>
-      <tr *ngIf="book.isbn">
+      <tr>
         <th>ISBN</th>
-        <td>{{ book.isbn }}</td>
+        <td><input [(ngModel)]="book.isbn" placeholder="isbn" /></td>
       </tr>
-      <tr *ngIf="book.series">
+      <tr>
         <th>Series</th>
-        <td>{{ book.series }}</td>
+        <td><input [(ngModel)]="book.series" placeholder="series" /></td>
       </tr>
     </table>
 
-    <p>{{ book.description }}</p>
+    <p>
+      <textarea
+        rows="5"
+        cols="60"
+        [(ngModel)]="book.description"
+        placeholder="description"
+      >
+      </textarea>
+    </p>
   </div>
 
+  <button (click)="updateBook()">Save Changes</button>
+  <button (click)="goBack()">Go Back</button>
   <!--
     <label>Description:</label>
     <input [(ngModel)]="book.description" placeholder="description" />
 
     -->
 </div>
-
-<button (click)="goBack()">go back</button>

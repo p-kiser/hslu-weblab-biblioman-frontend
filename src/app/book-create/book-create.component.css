@@ -1,0 +1,14 @@
+#book-create {
+  border: 25px solid saddlebrown;
+  padding: 2em;
+  background-color: burlywood;
+}
+
+input {
+  width: 200px;
+  margin-right: 1em;
+}
+
+div {
+  padding: 1em;
+}

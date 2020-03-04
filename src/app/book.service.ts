@@ -58,6 +58,10 @@ export class BookService {
       catchError(this.handleError("findBook", {}))
     );
   }
+  updateBook(book: Book): Observable<Object> {
+    let url = `${this.booksUrl}/${book.key}`;
+    return this.http.put(url, book);
+  }
 
   /**
    * Handle Http operation that failed.

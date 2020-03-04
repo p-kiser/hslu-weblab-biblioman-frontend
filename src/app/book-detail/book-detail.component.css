@@ -1,3 +1,9 @@
+#book-detail {
+  border: 25px solid saddlebrown;
+  padding: 2em 10em;
+  background-color: burlywood;
+}
+
 label {
   display: inline-block;
   width: 3em;
@@ -27,4 +33,29 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+
+th {
+  text-align: left;
+}
+input {
+  width: 100%;
+}
+
+.description {
+  max-width: 800px;
+}
+
+button {
+  width: 100%;
+  background-color: saddlebrown;
+  border: 1px solid rgb(37, 24, 7);
+  color: beige;
+  font-size: 1.2em;
+}
+
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 1em;
 }

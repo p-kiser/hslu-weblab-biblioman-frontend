@@ -30,14 +30,18 @@ nav {
   min-width: 900px;
   background-color: rgb(37, 24, 7);
 }
+nav ul {
+  width: 100%;
+  border: 5px solid red;
+}
 
 nav li {
-  display: flexbox;
+  flex: auto;
 }
 
 nav a {
   color: white;
-  padding: 5px 10px;
+  padding: 25px 60px;
   text-decoration: none;
   display: inline-block;
   background-color: saddlebrown;
@@ -46,6 +50,7 @@ nav a {
 }
 nav a:visited,
 a:link {
+  font-style: italic;
 }
 nav a:hover {
   color: gold;

@@ -1,59 +1,64 @@
-<h2>New book</h2>
+<div id="book-create">
+  <h2>New book</h2>
 
-<div style="border:1px solid saddlebrown">
-  <p>
-    Enter ISBN number <em>(e.g. 9782940481064)</em> to fetch book infos from
-    google:
-  </p>
-  <label
-    >Seach for ISBN:
-    <input [(ngModel)]="book.isbn" placeholder="isbn" />
-  </label>
-  <button (click)="findBook()">Get book info</button>
-</div>
+  <div style="border:1px solid saddlebrown">
+    <p>
+      Enter ISBN number <em>(e.g. 9782940481064)</em> to fetch book infos from
+      google:
+    </p>
+    <label
+      >Seach for ISBN:
+      <input [(ngModel)]="book.isbn" placeholder="isbn" />
+    </label>
+    <button (click)="findBook()">Get book info</button>
+  </div>
 
-<div>
-  <!--<img
+  <div>
+    <!--<img
     src="http://covers.openlibrary.org/b/isbn/{{ isbn.replace('-', '') }}-M.jpg"
   />-->
 
-  <table>
-    <tr>
-      <th>Title</th>
-      <td><input [(ngModel)]="book.title" /></td>
-    </tr>
-    <tr>
-      <th>Author(s)</th>
-      <td><input [(ngModel)]="book.authors" /></td>
-    </tr>
-    <tr>
-      <th>ISBN</th>
-      <td><input [(ngModel)]="book.isbn" /></td>
-    </tr>
-    <tr *ngIf="book.isbn">
-      <th>
-        Cover
-      </th>
-      <td>
-        <img
-          src="http://covers.openlibrary.org/b/isbn/{{
-            book.isbn.replace('-', '')
-          }}-M.jpg"
-        />
-      </td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td>
-        <textarea
-          rows="5"
-          cols="60"
-          [(ngModel)]="book.description"
-          placeholder="description"
-        >
-        </textarea>
-      </td>
-      <button (click)="saveBook()">Add to Collection</button>
-    </tr>
-  </table>
+    <table>
+      <tr>
+        <th>Title</th>
+        <td><input [(ngModel)]="book.title" /></td>
+      </tr>
+      <tr>
+        <th>Author(s)</th>
+        <td><input [(ngModel)]="book.authors" /></td>
+      </tr>
+      <tr>
+        <th>ISBN</th>
+        <td><input [(ngModel)]="book.isbn" /></td>
+      </tr>
+      <tr *ngIf="book.isbn">
+        <th>
+          Cover
+        </th>
+        <td>
+          <img
+            src="http://covers.openlibrary.org/b/isbn/{{
+              book.isbn.replace('-', '')
+            }}-M.jpg"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>
+          <textarea
+            rows="5"
+            cols="60"
+            [(ngModel)]="book.description"
+            placeholder="description"
+          >
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><button (click)="saveBook()">Add to Collection</button></td>
+      </tr>
+    </table>
+  </div>
 </div>

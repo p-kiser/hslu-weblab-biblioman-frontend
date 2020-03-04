@@ -17,7 +17,8 @@ export class BookCreateComponent implements OnInit {
 
   ngOnInit() {
     //this.isbn = ""; //9785961410204
-    this.book = { _id: uuidv4(), title: "", authors: [] };
+
+    this.book = this.newBook();
   }
 
   findBook() {
@@ -38,12 +39,17 @@ export class BookCreateComponent implements OnInit {
       data => console.log(data),
       error => console.log(error)
     );
-    this.book = { _id: uuidv4(), title: "", authors: [] };
+    this.book = this.newBook();
     this.gotoList();
   }
 
   gotoList() {
     this.router.navigate(["/books"]);
+  }
+
+  newBook(): Book {
+    let newID = uuidv4();
+    return { _id: newID, key: newID, title: "", authors: [] };
   }
 }
 
