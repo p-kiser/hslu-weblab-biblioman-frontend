@@ -30,6 +30,18 @@
       <th>ISBN</th>
       <td><input [(ngModel)]="book.isbn" /></td>
     </tr>
+    <tr *ngIf="book.isbn">
+      <th>
+        Cover
+      </th>
+      <td>
+        <img
+          src="http://covers.openlibrary.org/b/isbn/{{
+            book.isbn.replace('-', '')
+          }}-M.jpg"
+        />
+      </td>
+    </tr>
     <tr>
       <th>Description</th>
       <td>

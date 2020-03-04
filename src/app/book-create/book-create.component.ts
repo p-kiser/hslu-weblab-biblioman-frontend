@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { v4 as uuidv4 } from "uuid";
 import { BookService } from "../book.service";
 import { Book } from "../book";
@@ -12,7 +13,7 @@ export class BookCreateComponent implements OnInit {
   isbn: string;
   book: Book;
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService, private router: Router) {}
 
   ngOnInit() {
     //this.isbn = ""; //9785961410204
@@ -21,19 +22,28 @@ export class BookCreateComponent implements OnInit {
 
   findBook() {
     this.bookService
-      .findBook(this.isbn)
+      .findBook(this.book.isbn)
       .subscribe(
         book => (
           (this.book.title = book.volumeInfo.title),
           (this.book.authors = book.volumeInfo.authors)
         )
       );
-    console.log("findBook called: " + this.isbn);
+    console.log("findBook called: " + this.book.isbn);
   }
 
   saveBook() {
     console.log("Save button pressed");
-    this.bookService.saveBook(this.book);
+    this.bookService.saveBook(this.book).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
+    this.book = { _id: uuidv4(), title: "", authors: [] };
+    this.gotoList();
+  }
+
+  gotoList() {
+    this.router.navigate(["/books"]);
   }
 }
 

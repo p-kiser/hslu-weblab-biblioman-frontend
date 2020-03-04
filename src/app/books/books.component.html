@@ -4,11 +4,14 @@
   <ul class="books">
     <li *ngFor="let book of books">
       <a routerLink="/detail/{{ book.key }}">
-        <strong>{{ book.title }}</strong>
-        <br />
-        <small
-          ><i>{{ book.authors }}</i></small
-        >
+        <div>
+          <strong>{{ book.title }}</strong>
+        </div>
+        <div>
+          <small
+            ><i>{{ book.authors }}</i></small
+          >
+        </div>
       </a>
     </li>
   </ul>

@@ -19,6 +19,9 @@ export class BookService {
   private booksUrl = "http://localhost:8080/book"; //
   private isbnApi = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
 
+  // TODO: $GOOGLE_API_KEY
+  private API_KEY = "AIzaSyBStCHFb3v8Y8ruoO6VYfpcaR_qAazcE-A";
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`BookService: ${message}`);
@@ -28,7 +31,7 @@ export class BookService {
     return this.http.get<GetResponse>(this.booksUrl).pipe(
       map(response => response._embedded.book),
       tap(books => this.log(`fetched books`)),
-      catchError(this.handleError("getHeroes", []))
+      catchError(this.handleError("GetBooks", []))
     );
   }
 
@@ -37,15 +40,21 @@ export class BookService {
     return this.http.get<Book>(`${this.booksUrl}/${id}`);
   }
 
-  saveBook(book: Book): void {
-    this.http.post(this.booksUrl, book);
-    this.log(`book saved: ${book.title}`);
+  saveBook(book: Book): Observable<Object> {
+    book.authors = book.authors
+      .toString()
+      .replace(", ", ",")
+      .split(",");
+    this.log(`creating new book: ${book.title}`);
+    return this.http.post(`${this.booksUrl}`, book);
   }
 
   findBook(isbn: string): any {
-    return this.http.get<any>(this.isbnApi + isbn).pipe(
+    let url = `${this.isbnApi}${isbn}`; // ?key=${this.API_KEY}
+    this.log(`Getting info for ${url}`);
+    return this.http.get<any>(url).pipe(
       map(response => response.items[0]),
-      tap(book => `Got info for ${isbn}`),
+      tap(book => this.log(`Got info for ${isbn}`)),
       catchError(this.handleError("findBook", {}))
     );
   }

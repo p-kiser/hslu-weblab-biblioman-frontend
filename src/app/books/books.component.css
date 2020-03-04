@@ -73,6 +73,9 @@ li {
   border: 1px solid black;
   border-radius: 4px;
   text-align: center;
+  display: table;
+  min-width: 100px;
+  max-width: 300px;
 }
 
 h2 {
