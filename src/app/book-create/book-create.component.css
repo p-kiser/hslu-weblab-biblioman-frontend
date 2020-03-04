@@ -2,6 +2,7 @@
   border: 25px solid saddlebrown;
   padding: 2em;
   background-color: burlywood;
+  min-width: 900px;
 }
 
 input {

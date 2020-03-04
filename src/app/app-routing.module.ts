@@ -11,11 +11,14 @@ const routes: Routes = [
   { path: "topshelf", component: TopshelfComponent },
   { path: "books", component: BooksComponent },
   { path: "new", component: BookCreateComponent },
-  { path: "detail/:id", component: BookDetailComponent }
+  {
+    path: "detail/:id",
+    component: BookDetailComponent
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

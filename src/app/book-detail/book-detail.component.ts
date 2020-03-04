@@ -42,7 +42,6 @@ export class BookDetailComponent implements OnInit {
       error => console.log(error)
     );
     this.gotoList();
-    // TODO: Patch book
   }
 
   gotoList() {
