@@ -20,7 +20,7 @@ export class BookService {
   private isbnApi = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
 
   // TODO: $GOOGLE_API_KEY
-  private API_KEY = "AIzaSyBStCHFb3v8Y8ruoO6VYfpcaR_qAazcE-A";
+  private API_KEY = "...";
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
